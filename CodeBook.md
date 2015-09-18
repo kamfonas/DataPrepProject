@@ -64,7 +64,7 @@ steps using the metadata provided.
 
 ### Tidy Data Set
 
-
+steps using the metadata provided in the data set.
 
 ## Acknowledgements
 We acknowledged the use of this data set by referencing the following publication:
