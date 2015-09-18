@@ -49,7 +49,7 @@ The data files are then loaded into data frames as follows:
 	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))
 	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))
 	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))
-</code>
+</code> 
 
 ## Data Set Transformations
 
