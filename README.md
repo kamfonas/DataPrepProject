@@ -5,7 +5,7 @@ The following is included:
 * This <b>README.md</b> file
 * <b>CodeBook.md</b> with descriptions of the data and transformations
 * <b>run_analysis.R</b> script performing all steps to download, unzip, load, transform and output the data
-* <b>tidy_data.txt</b> the output tidy data file summarizing the required metrics
+* <b>UCI_HAR_Aggregated.txt</b> the output tidy data file summarizing the required metrics
 
 The data set used for this assignment is located <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">here</a>
 and its use is acknowledged by referencing the following publication:

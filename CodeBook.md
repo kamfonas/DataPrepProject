@@ -41,14 +41,14 @@ Every time the script runs, the unzip function overlays any potentially existing
 The data files are then loaded into data frames as follows:
 
 ``` R
-	activity.labels 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/activity_labels.txt")) <br>
-	features 		<-  read.table(paste0(dataDir,"/UCI HAR Dataset/features.txt"))<br>
-	X_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/X_test.txt"))<br>
-	y_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/y_test.txt"))<br>
-	subject.test 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/subject_test.txt"))<br>
-	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))<br>
-	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))<br>
-	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))<br>
+	activity.labels 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/activity_labels.txt"))
+	features 		<-  read.table(paste0(dataDir,"/UCI HAR Dataset/features.txt"))
+	X_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/X_test.txt"))
+	y_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/y_test.txt"))
+	subject.test 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/subject_test.txt"))
+	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))
+	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))
+	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))
 ```
 
 ## Data Set Transformations
@@ -60,11 +60,45 @@ steps using the metadata provided.
 * We use the descriptive names in the activity.labels to convert the y_test and y_train integer values into a factor.
 * We search the descriptive names in the features data frame using a regular expression and the grep function to identify the index positions of means and standard deviations. 
   Then we use these indexes to filter the columns we need for the tidy data set. 
-* We add a label column in the features data set after eliminating parentheses and spaces from the names of column 2. We assign these names to the tidy set variables. 
+* We add a label column in the features data set after eliminating parentheses and spaces from the names in the second column. We assign these names to the tidy set variables. 
 
 ### Tidy Data Set
 
-steps using the metadata provided in the data set.
+The resulting tidy data set contains the following columns:
+
+<dl>
+<dt><em>Activity</em>:</dt><dd>Which of thesix activities was being performed</dd>
+<dt><em>Subject</em>:</dt><dd>An identifier distinguishing each subject performin the activity</dd>
+<dt><em>Time measurements</em>:</dt><dd>A list of 40 time accelaration means and stardard deviations taken, each in three dimensions (X,Y,Z)</dd>
+
+		<dl>	<dt>File <em>tBodyAcc-mean-X/Y/Z</em> and <em>tBodyAcc-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body acceleration measured along dimensions X,Y and Z</dd>
+			<dt>File <em>tGravityAcc-mean-X/Y/Z</em> and <em>tGravityAcc-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of gravity acceleration measured along dimensions X,Y and Z</dd>
+			<dt>File <em>tBodyAccJerk-mean-X/Y/Z</em> and <em>tBodyAccJerk-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body acceleration jerk measured along dimensions X,Y and Z</dd>
+			<dt>File <em>tBodyGyro-mean-X/Y/Z</em> and <em>tBodyGyro-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body gyro vector measured along dimensions X,Y and Z</dd>
+			<dt>File <em>tBodyGyroJerk-mean-X/Y/Z</em> and <em>tBodyGyroJerk-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body gyro jerk vector measured along dimensions X,Y and Z</dd>
+			<dt>File <em>tBodyAccMag-mean</em> and <em>tBodyAccMag-std</em>:</dt><dd>The mean and stadard deviations of the body accelearation magnitude</dd>
+			<dt>File <em>tGravityAccMag-mean</em> and <em>tGravityAccMag-std</em>:</dt><dd>The mean and stadard deviations of the gravity accelearation magnitude</dd>
+			<dt>File <em>tBodyGyroJerkMag-mean</em> and <em>tBodyGyroJerkMag-std</em>:</dt><dd>The mean and stadard deviations of the gyro jerk magnitude</dd>
+		</dl></dd>
+<dt><em>Frequency measurements</em>:</dt><dd>A list of 26 time accelaration means and stardard deviations corresponding to the non-Gyro measured time observations
+			above, after the Fourier transformation</dd>
+
+		<dl>	<dt>File <em>fBodyAcc-mean-X/Y/Z</em> and <em>fBodyAcc-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body acceleration measured along dimensions X,Y and Z</dd>
+			<dt>File <em>fBodyAccJerk-mean-X/Y/Z</em> and <em>fBodyAccJerk-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body acceleration jerk measured along dimensions X,Y and Z</dd>
+			<dt>File <em>fBodyGyro-mean-X/Y/Z</em> and <em>fBodyGyro-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body gyro vector measured along dimensions X,Y and Z</dd>
+			<dt>File <em>fBodyGyroJerk-mean-X/Y/Z</em> and <em>fBodyGyroJerk-std-X/Y/Z</em>:</dt><dd>Three means and three stadard deviations of the body gyro jerk vector measured along dimensions X,Y and Z</dd>
+			<dt>File <em>fBodyAccMag-mean</em> and <em>fBodyAccMag-std</em>:</dt><dd>The mean and stadard deviations of the body accelearation magnitude</dd>
+			<dt>File <em>fBodyGyroJerkMag-mean</em> and <em>fBodyGyroJerkMag-std</em>:</dt><dd>The mean and stadard deviations of the gyro jerk magnitude</dd>
+		</dl></dd>
+</dl>
+
+## Generated UCI_HAR_Aggregated.txt file
+
+The final step of the process is to write this text file in the working directory. Notice the following:
+* Headers are included
+* Columns are space separated
+* The measurement variables have the same names as the tidy data described earlier, prefixed by "avg_"
+
 
 ## Acknowledgements
 We acknowledged the use of this data set by referencing the following publication:
