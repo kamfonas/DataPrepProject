@@ -40,7 +40,7 @@ Every time the script runs, the unzip function overlays any potentially existing
 
 The data files are then loaded into data frames as follows:
 
-<code>
+``` R
 	activity.labels 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/activity_labels.txt")) <br>
 	features 		<-  read.table(paste0(dataDir,"/UCI HAR Dataset/features.txt"))<br>
 	X_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/X_test.txt"))<br>
@@ -49,7 +49,7 @@ The data files are then loaded into data frames as follows:
 	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))<br>
 	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))<br>
 	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))<br>
-</code> 
+```
 
 ## Data Set Transformations
 
