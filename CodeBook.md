@@ -41,14 +41,14 @@ Every time the script runs, the unzip function overlays any potentially existing
 The data files are then loaded into data frames as follows:
 
 <code>
-	activity.labels 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/activity_labels.txt"))
-	features 		<-  read.table(paste0(dataDir,"/UCI HAR Dataset/features.txt"))
-	X_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/X_test.txt"))
-	y_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/y_test.txt"))
-	subject.test 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/subject_test.txt"))
-	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))
-	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))
-	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))
+	activity.labels 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/activity_labels.txt")) <br>
+	features 		<-  read.table(paste0(dataDir,"/UCI HAR Dataset/features.txt"))<br>
+	X_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/X_test.txt"))<br>
+	y_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/y_test.txt"))<br>
+	subject.test 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/subject_test.txt"))<br>
+	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))<br>
+	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))<br>
+	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))<br>
 </code> 
 
 ## Data Set Transformations
