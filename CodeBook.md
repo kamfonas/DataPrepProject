@@ -38,8 +38,36 @@ The directory is downloaded, stored at a relative data location, and the content
 The script checks to see if the data directory exists, and if not it creates it. It also checks and skips the download if the zip file exists in the data directory. 
 Every time the script runs, the unzip function overlays any potentially existing objects in the data directory.
 
+The data files are then loaded into data frames as follows:
+
+<code>
+	activity.labels 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/activity_labels.txt"))
+	features 		<-  read.table(paste0(dataDir,"/UCI HAR Dataset/features.txt"))
+	X_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/X_test.txt"))
+	y_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/y_test.txt"))
+	subject.test 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/subject_test.txt"))
+	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))
+	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))
+	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))
+</code>
+
+## Data Set Transformations
+
+### Use of Metadata
+
+The transformation of the data involves a very large number of columns. Consequently, we chose to perform some of the data preparation
+steps using the metadata provided.
+* We use the descriptive names in the activity.labels to convert the y_test and y_train integer values into a factor.
+* We search the descriptive names in the features data frame using a regular expression and the grep function to identify the index positions of means and standard deviations. 
+  Then we use these indexes to filter the columns we need for the tidy data set. 
+* We add a label column in the features data set after eliminating parentheses and spaces from the names of column 2. We assign these names to the tidy set variables. 
+
+### Tidy Data Set
+
+
+
 ## Acknowledgements
-Use of this dataset in publications is acknowledged by referencing the following publication:
+We acknowledged the use of this data set by referencing the following publication:
 
 Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. 
 	"Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine." 
