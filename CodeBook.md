@@ -38,6 +38,27 @@ The directory is downloaded, stored at a relative data location, and the content
 The script checks to see if the data directory exists, and if not it creates it. It also checks and skips the download if the zip file exists in the data directory. 
 Every time the script runs, the unzip function overlays any potentially existing objects in the data directory.
 
+The data files are then loaded into data frames as follows:
+
+<code>
+	activity.labels 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/activity_labels.txt"))
+	features 		<-  read.table(paste0(dataDir,"/UCI HAR Dataset/features.txt"))
+
+	X_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/X_test.txt"))
+	y_test 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/y_test.txt"))
+	subject.test 	<- read.table(paste0(dataDir,"/UCI HAR Dataset/test/subject_test.txt"))
+	subject.train 	<-  read.table(paste0(dataDir,"/UCI HAR Dataset/train/subject_train.txt"))
+	X_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/X_train.txt"))
+	y_train 		<- read.table(paste0(dataDir,"/UCI HAR Dataset/train/y_train.txt"))
+</code>
+
+## Data Set Transformations
+
+### Use of Metadata
+
+The transformation of the data involves a very large number of columns. Consequently, we chose to perform some of the data preparation
+steps using the metadata provided in the data set.
+
 ## Acknowledgements
 Use of this dataset in publications is acknowledged by referencing the following publication:
 
